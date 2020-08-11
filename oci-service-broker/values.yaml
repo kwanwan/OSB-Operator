@@ -1,0 +1,29 @@
+image:
+  pullPolicy: Always
+  repository: iad.ocir.io/oracle/oci-service-broker
+  tag: 1.4.0
+logLevel:
+  broker: INFO
+  ociSDK: INFO
+ociCredentials:
+  secretName: ""
+replicaCount: 1
+service:
+  containerPort: 9998
+  name: service-broker
+  servicePort: 8080
+  type: ClusterIP
+serviceTags: null
+storage:
+  etcd:
+    image: quay.io/coreos/etcd:latest
+    imagePullPolicy: Always
+    servers: null
+    tls:
+      clientCertSecretName: null
+      enabled: true
+    useEmbedded: false
+  type: etcd
+tls:
+  enabled: true
+  secretName: ""
